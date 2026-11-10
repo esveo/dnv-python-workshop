@@ -1,6 +1,6 @@
 # Python workshop: exercise project `grid_analysis`
 
-The exercise project for the Python workshop. It is modelled on typical PowerFactory evaluations: a load flow is run, then node voltages and line loadings are checked and printed as a report.
+The exercise project for the Python workshop. The full course content (topics, explanations and exercises per session) is in [`workshop/README.md`](workshop/README.md). It is modelled on typical PowerFactory evaluations: a load flow is run, then node voltages and line loadings are checked and printed as a report.
 
 You do not need a PowerFactory licence. The module `powerfactory_fake` mimics the most important parts of the real Python API (`GetApplication`, `GetFromStudyCase("ComLdf")`, `GetCalcRelevantObjects`, `GetAttribute("m:u")`, `GetAttribute("c:loading")`). The code looks like a real script but runs on any machine.
 
@@ -69,6 +69,7 @@ dnv-python-workshop/
 │   ├── report.py            # output
 │   └── powerfactory_fake.py # stand-in for the PowerFactory API
 ├── exercises/               # one task per exercise
+├── workshop/                # course content per session
 └── tests/
 ```
 
