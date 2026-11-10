@@ -69,6 +69,7 @@ dnv-python-workshop/
 │   ├── report.py            # output
 │   └── powerfactory_fake.py # stand-in for the PowerFactory API
 ├── exercises/               # one task per exercise
+├── solutions/               # sample solutions
 └── tests/
 ```
 
@@ -126,7 +127,7 @@ The starting code contains bugs and style problems on purpose. They are part of 
 
 ## Sample solutions
 
-The sample solutions will be provided after the sessions.
+`solutions/` holds one folder per exercise with the state after that exercise. Files sit under the same path as in the project, so `solutions/03/tests/test_domain.py` belongs to `tests/test_domain.py`. Try it yourself first, then compare. Details are in [solutions/README.md](solutions/README.md).
 
 ## From the fake to the real PowerFactory
 
