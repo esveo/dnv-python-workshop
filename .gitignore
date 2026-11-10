@@ -1,0 +1,38 @@
+# Virtual environment and files Python generates itself
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# Tool caches
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Coverage reports
+.coverage
+htmlcov/
+
+# Build results (Nuitka, PyInstaller, Cython)
+build/
+dist/
+*.build/
+*.dist/
+*.onefile-build/
+*.pyd
+src/**/*.pyi
+*.so
+*.exe
+*.spec
+
+# Generated documentation
+docs/_build/
+docs/_autosummary/
+
+# Files produced by the exercises
+check_report.txt
+requirements.txt
+
+# Operating system
+.DS_Store
+Thumbs.db
