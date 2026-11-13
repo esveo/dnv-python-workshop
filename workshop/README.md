@@ -461,6 +461,16 @@ def three_phase_active_power_kw(voltage_v: float, current_a: float, power_factor
 - Tests are a safety net: they give you confidence to change code and make AI-generated code verifiable
 - Unit test: checks a small unit, usually a function, in isolation and quickly
 - A test has three steps: Arrange (prepare inputs), Act (call the function), Assert (check the result)
+
+**Test-driven development (TDD)**
+
+- Write the test first, then the implementation
+- Three-step cycle: Red (write a failing test), Green (implement just enough to make it pass), Refactor (clean up while tests stay green)
+- Advantage: you must first clarify exactly what the function should do, including edge cases
+- Works well with AI: the tests are the specification. AI can implement; the tests decide whether it is correct.
+
+**Unit tests in Python**
+
 - pytest is the most widely used Python test framework. Python includes `unittest`, but pytest requires much less code.
 - In pytest, tests are ordinary functions with `assert`: if the condition is false, the test fails
 - pytest automatically finds tests in files named `test_*.py` and functions named `test_*`
@@ -486,13 +496,6 @@ def test_lower_limit_still_belongs_to_the_band():
 def test_undervoltage_is_outside_the_band():
     assert not within_voltage_band(0.94)
 ```
-
-**Test-driven development (TDD)**
-
-- Write the test first, then the implementation
-- Three-step cycle: Red (write a failing test), Green (implement just enough to make it pass), Refactor (clean up while tests stay green)
-- Advantage: you must first clarify exactly what the function should do, including edge cases
-- Works well with AI: the tests are the specification. AI can implement; the tests decide whether it is correct.
 
 #### 💪 03 Write your first tests yourself (without AI)
 
