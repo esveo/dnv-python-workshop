@@ -97,7 +97,7 @@ Before starting, make sure the following are available:
 - Open **VS Code**.
 - In the Extensions view (View > Extensions), check that the **Python** extension by Microsoft is installed.
 - Open a terminal and run `python --version` (or `py --version` on Windows) to check the **Python CLI**; this should be your globally installed version.
-- Run `uv --version` to check **uv**. If it is missing, install it using one of the methods above.
+- Run `uv --version` to check **uv**. If it is missing, install it using one of the methods below.
 - Run `git --version` to check the **Git CLI**.
 
 If a check fails, let the trainer know.
