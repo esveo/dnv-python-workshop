@@ -1,4 +1,4 @@
-# 💪 R2 Run scenarios in parallel
+# 💪 R2 Calculate scenarios in parallel
 
 **Topic:** Parallelisation
 

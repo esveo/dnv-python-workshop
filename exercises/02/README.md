@@ -1,4 +1,4 @@
-# 💪 02 Fix the findings
+# 💪 02 Fix findings
 
 **Topic:** Code quality and static analysis
 
@@ -18,6 +18,13 @@ The starting code in `src/grid_analysis/` contains style problems and a few real
 
 3. Run `uv run ruff check` again. What is new?
 4. Fix the first three findings yourself. Every finding has a code (e.g. `B006`) under which the [Ruff docs](https://docs.astral.sh/ruff/rules/) explain why the rule exists.
+5. Install the Ruff extension (`charliermarsh.ruff`, VS Code recommends it for this repository) and turn on format on save:
+   1. In a Python file, open the command palette with Ctrl+Shift+P
+   2. Search for "Format Document With" and select "Configure Default Formatter"
+   3. Select Ruff
+   4. Open the settings by searching "Open Settings (UI)" in the command palette
+   5. Turn on "Format On Save"
+   6. Edit a file and save it to format it
 
 ## Part 2 (with AI)
 
@@ -32,6 +39,7 @@ The starting code in `src/grid_analysis/` contains style problems and a few real
 - [ ] `uv run mypy src` reports no errors
 - [ ] `uv run python -m grid_analysis` still prints the report, `uv run pytest` is green
 - [ ] The function `p` in `domain.py` has a descriptive name, parameters with the unit in the name, type hints, a docstring and no magic number
+- [ ] The Ruff extension is installed, set as the default formatter, and saving a Python file formats it
 - [ ] For every finding you fixed, you can say whether it was a real bug or only style
 
 ## Hints

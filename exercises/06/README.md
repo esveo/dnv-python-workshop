@@ -18,11 +18,13 @@ The script writes `check_report.txt` into the current folder.
 2. Mark every place with a side effect (as a comment or on paper): what does the function read from outside, what does it cause apart from its return value?
 3. Sketch on paper which parts should become pure and what gets passed in
 4. Assign every part to a module:
-   - `domain.py` (core): checking the limits
+   - `domain.py` (core): only domain logic and calculations, e.g. checking the limits. Pure and testable.
    - `data_source.py`: access to PowerFactory
-   - `report.py`: building the text, writing the file
+   - `report.py`: building the report text (pure), writing the file
 
-   This is the module split from block 1, now with a reason.
+   This is the module split from session 1, now with a reason.
+
+**Do not implement anything yet.** Work through it conceptually, on paper or in pseudocode. The code changes happen in part 2.
 
 ## Part 2 (with AI)
 
@@ -64,9 +66,13 @@ The script writes `check_report.txt` into the current folder.
   ```
 
 - Files in tests: with the parameter `tmp_path`, pytest provides an empty temporary folder
+- Every split and every abstraction has its cost: more lines to read and maintain, more files to look at. Split where it brings value.
+- Write tests where they really help you. If you feel unsure about an implementation, write tests for it and, if necessary, make it testable first.
+- The bigger the unit under test, the faster the tests are written, but the more often and for more reasons they break
 
 ## More
 
 - [Cosmic Python: Abstractions](https://www.cosmicpython.com/book/chapter_03_abstractions.html)
 - [Cosmic Python: Dependency Injection](https://www.cosmicpython.com/book/chapter_13_dependency_injection.html)
 - [Functional Core, Imperative Shell](https://www.destroyallsoftware.com/screencasts/catalog/functional-core-imperative-shell)
+- [The Triangle of Abstractions](https://www.esveo.com/en/blog/the-triangle-of-abstractions/)
