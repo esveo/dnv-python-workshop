@@ -334,23 +334,6 @@ Copilot is not a model itself; it offers models from several providers: Claude (
 - Rule of thumb: start with a versatile model; switch to a powerful one only for planning and difficult cases
 - Your organization’s license determines which models are available and how much budget is provided
 
-**Two terms we will use constantly**
-
-- Type hints: annotations describing the types of parameters and return values (`voltage_pu: float`, `-> bool`). Python itself does not check them at runtime; they provide information to people, tools and AI. `list[Node]` means “list of Node objects.”
-- Docstring: the text in triple quotation marks directly below `def`. It describes what the function does. The editor, documentation tools and AI read it too.
-
-```py
-def within_voltage_band(voltage_pu: float, min_pu: float = 0.95, max_pu: float = 1.05) -> bool:
-    """Checks whether a node voltage is within the permitted band.
-
-    Voltages are in p.u. (per unit); the limits are included.
-    """
-```
-
-- Autocomplete: write the signature, type hints and docstring first, then read and check the suggestion
-- Chat: ask for code explanations, targeted questions and small changes to selected sections
-- Suggestions are most dangerous when they are almost correct
-
 **Pros and cons**
 
 - ✅ Faster for routine work: repetitive boilerplate, tests, renaming, documentation
@@ -360,14 +343,20 @@ def within_voltage_band(voltage_pu: float, min_pu: float = 0.95, max_pu: float =
 - ❌ Data privacy: what may be included in a prompt?
 - ❌ Cost: powerful models consume the budget quickly
 
+**Tips and tricks**
+
+- Docs first
+- Ask questions
+- Don’t bias
+- Build trust over time
+- Treat your agent like a human
+
 **Rules for this training (and afterwards)**
 
 - First formulate your own solution idea, then ask
 - Do not accept anything you cannot explain
 - Ask AI to explain, not just to do (“Why is it like that?”)
 - AI code without tests is unverified code (we cover how to write tests at the end of session 1)
-
-**Live demo:** Write a docstring, let autocomplete suggest the function, ask about an edge case in chat and find the error in the suggestion.
 
 **More:** [Supported models in Copilot](https://docs.github.com/en/copilot/reference/ai-models/supported-models) · [GitHub model comparison](https://docs.github.com/en/copilot/reference/ai-models/model-comparison) · [Tips for good prompts](https://www.promptingguide.ai/introduction/tips)
 
@@ -402,6 +391,23 @@ def within_voltage_band(voltage_pu: float, min_pu: float = 0.95, max_pu: float =
 [tool.ruff.lint]
 extend-select = ["B", "I", "N"]
 ```
+
+**Type hints and docstrings help the AI**
+
+- Type hints: annotations describing the types of parameters and return values (`voltage_pu: float`, `-> bool`). Python itself does not check them at runtime; they provide information to people, tools and AI. `list[Node]` means “list of Node objects.”
+- Docstring: the text in triple quotation marks directly below `def`. It describes what the function does. The editor, documentation tools and AI read it too.
+
+```py
+def within_voltage_band(voltage_pu: float, min_pu: float = 0.95, max_pu: float = 1.05) -> bool:
+    """Checks whether a node voltage is within the permitted band.
+
+    Voltages are in p.u. (per unit); the limits are included.
+    """
+```
+
+- Autocomplete: write the signature, type hints and docstring first, then read and check the suggestion
+- Chat: ask for code explanations, targeted questions and small changes to selected sections
+- Suggestions are most dangerous when they are almost correct
 
 **Most important: names and constants**
 
