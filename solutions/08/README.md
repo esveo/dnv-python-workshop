@@ -42,6 +42,20 @@ Try it with the fake data:
 uv run python -c "from grid_analysis.loading_summary import summarise_loadings; from grid_analysis.powerfactory_fake import *; print(max(summarise_loadings(fake_loadings_percent(), fake_line_names(), fake_scenario_names()), key=lambda line: line.max_loading_percent))"
 ```
 
+## Code review with a subagent
+
+A prompt that works:
+
+> Use a subagent to review the changes for the loading summary against docs/specs/loading.md. Report mistakes and missing edge cases, do not change any files.
+
+The subagent starts with a fresh context: it does not know the chat in which the code was written and only judges what is in the files. Typical findings:
+
+- an edge case from the specification without a test (e.g. names that do not match the shape)
+- a test whose expected value was computed with the same formula as the module
+- an error message that does not say which input is wrong
+
+Check every finding yourself before you fix it. A subagent can be wrong as well.
+
 ## What to look for in the review
 
 - Did the agent write the tests from the specification or from its own implementation? Tests that only repeat the code find nothing.

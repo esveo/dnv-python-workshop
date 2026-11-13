@@ -1,10 +1,10 @@
 # grid_analysis
 
 - Dependencies only via uv (`uv add`), never pip
-- Tests: `uv run pytest`, linting: `uv run ruff check`, types: `uv run mypy src`
+- Tests: `uv run pytest`, Linting: `uv run ruff check`, Types: `uv run mypy src`
 - domain.py: no file access, no print, no access to powerfactory
-- Access to PowerFactory only in data_source.py
+- Access PowerFactory only in data_source.py
 - Descriptive names with units, no magic numbers
-- Docstrings in NumPy style, always state the units (pu, percent, kV)
-- Floating point comparisons in tests always with pytest.approx
+- NumPy-style docstrings; always specify units (pu, percent, kV)
+- Always use pytest.approx for floating-point comparisons in tests
 - One test per case, the test name describes the case

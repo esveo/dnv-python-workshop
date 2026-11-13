@@ -1,4 +1,4 @@
-# Solution R2: Run scenarios in parallel
+# Solution R2: Calculate scenarios in parallel
 
 ## Files
 

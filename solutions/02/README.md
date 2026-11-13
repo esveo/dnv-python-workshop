@@ -1,4 +1,4 @@
-# Solution 02: Fix the findings
+# Solution 02: Fix findings
 
 Add to `pyproject.toml`:
 
@@ -8,6 +8,21 @@ extend-select = ["B", "I", "N"]
 ```
 
 The fixed files are in `src/grid_analysis/`.
+
+## Format on save
+
+With the Ruff extension (`charliermarsh.ruff`) set as the default formatter and "Format On Save" turned on, VS Code formats a Python file every time you save it. This ends up in your user settings (or, via the "Workspace" tab of the settings, in `.vscode/settings.json`):
+
+```json
+{
+  "[python]": {
+    "editor.defaultFormatter": "charliermarsh.ruff"
+  },
+  "editor.formatOnSave": true
+}
+```
+
+Check: add a few spaces or an empty line too many in a file and save. Ruff removes them, the same as `uv run ruff format` would.
 
 ## The findings: bug or style?
 

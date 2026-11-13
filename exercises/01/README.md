@@ -1,4 +1,4 @@
-# 💪 01 Set up a project and push it
+# 💪 01 Set up and push a project
 
 **Topic:** Git and project structure with uv
 
@@ -11,15 +11,15 @@ Work in a folder of your own outside this repository, e.g. `C:\git-exercise`.
 1. Create a bare repository as the "server" and clone it:
 
    ```powershell
-   git init --bare C:\git-exercise\grid-analysis.git
+   git init --bare C:\git-exercise\grid_analysis.git
    cd C:\git-exercise
-   git clone C:\git-exercise\grid-analysis.git
+   git clone C:\git-exercise\grid_analysis.git
    ```
 
-2. Change into the clone (`cd grid-analysis`) and turn it into a project: `uv init --package`
+2. Change into the clone (`cd grid_analysis`) and turn it into a project: `uv init --package --python 3.13`
 3. Add NumPy (`uv add numpy`) as well as pytest, Ruff and mypy as dev dependencies (`uv add --dev ...`)
 4. Look at what changed in `pyproject.toml`
-5. Check the `.gitignore` against the rule of thumb: is anything missing?
+5. Create a `.gitignore` file. Use the rule of thumb below to decide what belongs in it, or start from a ready-made one, e.g. the one from the [uv template](https://github.com/python-boilerplate/uv-template/blob/main/.gitignore).
 6. Commit and push. The first push into an empty remote: `git push -u origin main`
 
 ## Part 2 (without AI)
@@ -43,12 +43,15 @@ From here on, all exercises work in this exercise repository.
 
 - [ ] `git log` in your own project shows at least one commit, and `git status` reports that the branch is up to date with `origin/main`
 - [ ] The `pyproject.toml` of your project lists `numpy` under `dependencies` and `pytest`, `ruff`, `mypy` in the `dev` group
-- [ ] `.venv/` did not end up in the repository, `uv.lock` did
+- [ ] The project has a `.gitignore` that covers at least `.venv/` and `__pycache__/`
+- [ ] `.venv/` did not end up in the repository, `uv.lock`, `.python-version` and `.gitignore` did
 - [ ] In the exercise repository, `uv run python -m grid_analysis` prints a report
 
 ## Hints
 
 - Rule of thumb for the repository: everything goes in that was written by hand and is needed to recreate the project on another machine. Everything that can be generated automatically, only applies to one machine or is secret gets ignored.
+- `uv init --package` turns the current folder into a project with `pyproject.toml` and a `src` layout. `--python 3.13` sets the Python version of the project; uv downloads it if necessary.
+- Ignore: `.venv/`, `__pycache__/`, build artifacts (`build/`, `dist/`, `.pyd`, `.exe`), coverage reports and generated documentation (`docs/_build/`). Never include passwords, credentials, licence files or real customer grid data.
 - `git status` shows at any time what has changed and what is staged
 - If Git reports "dubious ownership" for a repository on a network drive, `git config --global --add safe.directory <path>` helps
 - Never put a bare repository into a synchronised folder (OneDrive, SharePoint): the sync client can corrupt the files in `.git`

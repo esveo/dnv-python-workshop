@@ -5,8 +5,8 @@
 | File | Goes to |
 | --- | --- |
 | `AGENTS.md` | project folder |
-| `.github/skills/check-solution/SKILL.md` | same path in the project |
-| `.github/skills/new-analysis/SKILL.md` | same path in the project |
+| `.agents/skills/check-solution/SKILL.md` | same path in the project |
+| `.agents/skills/new-analysis/SKILL.md` | same path in the project |
 | `src/grid_analysis/domain.py` | with `count_undervoltage` and `count_overvoltage` |
 | `tests/test_domain.py` | with the tests for both functions |
 
