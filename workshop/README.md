@@ -788,13 +788,11 @@ above_limit = (temperatures > limit_per_hour).sum(axis=1)
 
 - Open `exercises/07/scenarios.py`: nested loops count how many nodes violate the voltage band per scenario, for 1,000 scenarios × 5,000 nodes
 - Measure the runtime
-- Write a test that captures the current result (using `assert_allclose`)
 
 **Part 2 (with AI)**
 
 - Ask Copilot to propose a vectorized version and explain every NumPy operation
-- Compare runtime and result (your test from part 1 must still pass)
-- Extend it using broadcasting: each node gets its own limits (one array each of lower and upper limits per node, supplied by `powerfactory_fake`)
+- Compare runtime and result
 
 **More:** [NumPy: Broadcasting](https://numpy.org/doc/stable/user/basics.broadcasting.html) · [Why is NumPy fast?](https://numpy.org/doc/stable/user/whatisnumpy.html) · [SciPy Sparse](https://docs.scipy.org/doc/scipy/reference/sparse.html) · [scipy.constants](https://docs.scipy.org/doc/scipy/reference/constants.html) · [Profiler](https://docs.python.org/3/library/profile.html)
 
