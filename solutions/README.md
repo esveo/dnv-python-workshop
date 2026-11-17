@@ -40,7 +40,7 @@ extend-select = ["B", "I", "N"]
 | [04](04/README.md) | Tests for `overloaded_lines` |
 | [05](05/README.md) | `AGENTS.md`, both skills, the two counting functions |
 | [06](06/README.md) | Refactoring into core and shell, test with a fake data source |
-| [07](07/README.md) | Vectorised version with broadcasting, tests |
+| [07](07/README.md) | Vectorised version, run time comparison |
 | [08](08/README.md) | Specification, module `loading_summary.py`, tests |
 | [R1](R1/README.md) | Commands and expected results |
 | [R2](R2/README.md) | Parallel version with measurements |

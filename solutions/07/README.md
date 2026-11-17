@@ -5,23 +5,16 @@
 | File | Goes to |
 | --- | --- |
 | `exercises/07/scenarios.py` | same path in the project |
-| `exercises/07/test_scenarios.py` | same path in the project |
 
 ```powershell
 uv run python exercises/07/scenarios.py
-uv run pytest exercises/07
 ```
 
-## Part 1: measure first, pin down the result
+## Part 1: measure first
 
 The loop version takes between a few tenths of a second and two seconds for 5 million values, depending on the machine. Between runs the value varies by a few percent, so one measurement is enough to see a factor of 30, but not to see a difference of 5 %.
 
-The test pins down two things before anything changes:
-
-- a tiny example worked out by hand (3 scenarios × 4 nodes), including values exactly on the limits
-- the result of the loop version for 20 × 100 fake values, read off once and written into the test
-
-The second one says nothing about whether the result is right. It only says: it has not changed. That is exactly what a refactoring needs.
+The printed violations of the first five scenarios are the reference for the vectorised version. The script compares the full result of both versions with `np.array_equal` and prints `Same result: True`.
 
 ## Part 2: the vectorised version
 
@@ -38,19 +31,9 @@ return outside_band.sum(axis=1)
 
 The speed-up is around a factor of 30 to 100. The loop runs in compiled code inside NumPy, not in the Python interpreter.
 
-## Broadcasting
-
-```py
-outside_band = (voltages_pu < lower_limits_pu) | (voltages_pu > upper_limits_pu)
-```
-
-`voltages_pu` has the shape `(1000, 5000)`, the limits have `(5000,)`. NumPy compares the shapes from the right: 5000 matches 5000, the missing dimension is filled up. Every row is compared with the same limits, without the limits being copied 1,000 times.
-
-It only works because the nodes are the last axis. Limits per scenario of shape `(1000,)` would not fit: they would need the shape `(1000, 1)`, e.g. via `limits[:, np.newaxis]`.
-
 ## Things to check in an AI proposal
 
-- Does it return an array or a list? Both are fine, but the test has to compare with `assert_allclose` or `np.array_equal`, not with `==`.
+- Does it return an array or a list? Both are fine, but compare them with `np.array_equal`, not with `==`.
 - `np.where(...)` or `np.count_nonzero(..., axis=1)` are equally valid. `.sum(axis=1)` on the mask is the shortest.
 - A proposal with `for scenario in voltages_pu: np.sum(...)` is only half vectorised: one Python loop remains.
 - `NaN` is never outside the band in this version, because every comparison with `NaN` is `False`. The loop version behaves the same way.
